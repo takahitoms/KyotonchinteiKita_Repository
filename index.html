@@ -1,171 +1,142 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>鉄板居酒屋 京とんちん亭 京都駅前北店</title>
+<meta charset="UTF-8">
+<title>鉄板居酒屋 京とんちん亭 京都駅前北店</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      background-color: #3e1f17;
-      color: #333;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #3e1f17;
+}
 
-    header {
-      background-color: #6b2f1f;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+header {
+  background-color: #6b2f1f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1.5;
-    }
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
 
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+.hero img {
+  width: 100%;
+}
 
-    .container {
-      background-color: white;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-    }
+.container {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
 
-    h2 {
-      font-size: 20px;
-    }
+/* 食べログ */
+.btn-main {
+  display: block;
+  background-color: #b22222;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 400px;
+  font-size: 18px;
+  border-radius: 5px;
+}
 
-    /* 食べログ（メイン） */
-    .btn-main {
-      display: block;
-      background-color: #b22222;
-      color: white;
-      text-decoration: none;
-      padding: 15px;
-      margin: 20px auto;
-      width: 80%;
-      max-width: 400px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 5px;
-    }
+/* ホットペッパー */
+.btn-sub {
+  display: block;
+  background-color: white;
+  color: #b22222;
+  text-decoration: none;
+  padding: 14px;
+  margin: 10px auto;
+  width: 80%;
+  max-width: 400px;
+  font-size: 16px;
+  border: 2px solid #b22222;
+  border-radius: 5px;
+}
 
-    .btn-main:hover {
-      background-color: #8b1a1a;
-    }
+.tel a {
+  color: #b22222;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-    /* ホットペッパー（サブ） */
-    .btn-sub {
-      display: block;
-      background-color: #ffffff;
-      color: #b22222;
-      text-decoration: none;
-      padding: 13px;
-      margin: 10px auto 20px;
-      width: 80%;
-      max-width: 400px;
-      font-size: 16px;
-      font-weight: bold;
-      border: 2px solid #b22222;
-      border-radius: 5px;
-    }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
 
-    .btn-sub:hover {
-      background-color: #f8eaea;
-    }
+.gallery img {
+  width: 45%;
+  border-radius: 5px;
+}
 
-    .tel {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .tel a {
-      color: #b22222;
-      text-decoration: none;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      padding-top: 10px;
-    }
-
-    .gallery img {
-      width: 45%;
-      border-radius: 5px;
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- ヘッダー -->
-  <header>
-    <h1>
-      鉄板居酒屋<br>
-      京とんちん亭 京都駅前北店
-    </h1>
-  </header>
+<header>
+  <h1>
+    鉄板居酒屋<br>
+    京とんちん亭 京都駅前北店
+  </h1>
+</header>
 
-  <!-- メイン画像 -->
-  <div class="hero">
-    02.北店ファサード２.jpg
-  </div>
+<div class="hero">
+  <img src="02.北店ファサード２.jpg">
+</div>
 
-  <!-- メイン導線 -->
-  <div class="container">
+<div class="container">
 
-    <h2>京都駅すぐ。鉄板料理を気軽に。</h2>
+  <h2>京都駅すぐ。鉄板料理を気軽に。</h2>
 
-    <!-- 食べログ（メイン導線） -->
-    https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890
-      空席確認・ネット予約はこちら
+  <!-- 食べログ -->
+  <a class="btn-main" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890" target="_blank">
+    空席確認・ネット予約はこちら
+  </a>
+
+  <!-- ホットペッパー -->
+  <a class="btn-sub" href="https://kyoutonchintei.owst.jp/" target="_blank">
+    ホットペッパーで予約する
+  </a>
+
+  <!-- 電話 -->
+  <div class="tel">
+    <a href="tel:0753439955">
+      ☎ 電話で予約する
     </a>
-
-    <!-- ホットペッパー（サブ導線） -->
-    https://kyoutonchintei.owst.jp/
-      ホットペッパーで予約する
-    </a>
-
-    <!-- 電話 -->
-    <div class="tel">
-      tel:075-343-9955
-        ☎ 電話で予約する
-      </a>
-    </div>
-
   </div>
 
-  <!-- ギャラリー -->
-  <div class="container">
+</div>
 
-    <h2>店内・料理</h2>
+<div class="container">
 
-    <div class="gallery">
-      京やきそば.jpg
-      お好み焼き.jpg
-      唐揚げ.jpg
-      厚切りベーコン.jpg
-      ガーリックチャーハン.jpg
-      お漬物.jpg
-      04.北店店内1.jpg
-    </div>
+  <h2>店内・料理</h2>
 
+  <div class="gallery">
+    <img src="京やきそば.jpg">
+    <img src="お好み焼き.jpg">
+    <img src="唐揚げ.jpg">
+    <img src="厚切りベーコン.jpg">
+    <img src="ガーリックチャーハン.jpg">
+    <img src="お漬物.jpg">
+    <img src="04.北店店内1.jpg">
   </div>
+
+</div>
 
 </body>
 </html>
-
