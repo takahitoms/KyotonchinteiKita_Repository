@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,12 +9,12 @@
     body {
       margin: 0;
       font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      background-color: #f8f5f2;
+      background-color: #3e1f17;
       color: #333;
     }
 
     header {
-      background-color: #6b2f1f; /* 赤茶色 */
+      background-color: #6b2f1f;
       color: white;
       padding: 20px;
       text-align: center;
@@ -32,17 +33,19 @@
     }
 
     .container {
+      background-color: white;
+      margin: 20px;
       padding: 20px;
+      border-radius: 8px;
       text-align: center;
     }
 
     h2 {
       font-size: 20px;
-      margin-top: 10px;
     }
 
-    /* 予約ボタン */
-    .btn {
+    /* 食べログ（メイン） */
+    .btn-main {
       display: block;
       background-color: #b22222;
       color: white;
@@ -56,18 +59,38 @@
       border-radius: 5px;
     }
 
-    .btn:hover {
+    .btn-main:hover {
       background-color: #8b1a1a;
+    }
+
+    /* ホットペッパー（サブ） */
+    .btn-sub {
+      display: block;
+      background-color: #ffffff;
+      color: #b22222;
+      text-decoration: none;
+      padding: 13px;
+      margin: 10px auto 20px;
+      width: 80%;
+      max-width: 400px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 2px solid #b22222;
+      border-radius: 5px;
+    }
+
+    .btn-sub:hover {
+      background-color: #f8eaea;
     }
 
     .tel {
       font-size: 20px;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .tel a {
-      color: #6b2f1f;
+      color: #b22222;
       text-decoration: none;
     }
 
@@ -76,7 +99,7 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
-      padding: 10px;
+      padding-top: 10px;
     }
 
     .gallery img {
@@ -99,7 +122,7 @@
 
   <!-- メイン画像 -->
   <div class="hero">
-    <img src="02.北店ファサード２.jpg" alt="店舗メイン画像">
+    02.北店ファサード２.jpg
   </div>
 
   <!-- メイン導線 -->
@@ -107,14 +130,19 @@
 
     <h2>京都駅すぐ。鉄板料理を気軽に。</h2>
 
-    <!-- 予約ボタン -->
-    <a class="btn" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890" target="_blank">
-      ネット予約はこちら（食べログ）
+    <!-- 食べログ（メイン導線） -->
+    https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890
+      空席確認・ネット予約はこちら
+    </a>
+
+    <!-- ホットペッパー（サブ導線） -->
+    https://kyoutonchintei.owst.jp/
+      ホットペッパーで予約する
     </a>
 
     <!-- 電話 -->
     <div class="tel">
-      <a href="tel:075-343-9955">
+      tel:075-343-9955
         ☎ 電話で予約する
       </a>
     </div>
@@ -127,16 +155,17 @@
     <h2>店内・料理</h2>
 
     <div class="gallery">
-      <img src="京やきそば.jpg" alt="料理1">
-      <img src="お好み焼き.jpg" alt="料理2">
-      <img src="唐揚げ.jpg" alt="料理3">
-      <img src="厚切りベーコン.jpg" alt="料理4">
-      <img src="ガーリックチャーハン.jpg" alt="料理5">
-      <img src="お漬物.jpg" alt="料理6">
-      <img src="04.北店店内1.jpg" alt="店内1">
+      京やきそば.jpg
+      お好み焼き.jpg
+      唐揚げ.jpg
+      厚切りベーコン.jpg
+      ガーリックチャーハン.jpg
+      お漬物.jpg
+      04.北店店内1.jpg
     </div>
 
   </div>
 
 </body>
 </html>
+
