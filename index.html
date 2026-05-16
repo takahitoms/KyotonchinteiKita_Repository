@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -34,13 +35,11 @@
       line-height: 1.4;
     }
 
-    /* メイン画像（少し小さく） */
+    /* メイン画像（元のサイズ：幅100%のみ） */
     .hero img {
       width: 100%;
       display: block;
-      max-height: 360px;     /* ★小さくする */
-      object-fit: cover;     /* ★はみ出しはトリミングして綺麗に */
-      object-position: center;
+      height: auto;
     }
 
     /* コンテンツ枠 */
@@ -52,15 +51,15 @@
       text-align: center;
     }
 
-    /* ボタン共通（少し大きく） */
+    /* ボタン共通（大きめ：現状維持） */
     .btn {
       display: block;
       text-decoration: none;
-      padding: 18px;           /* ★大きく */
+      padding: 18px;
       margin: 16px auto;
-      width: 86%;              /* ★少し広く */
+      width: 86%;
       max-width: 440px;
-      font-size: 20px;         /* ★大きく */
+      font-size: 20px;
       border-radius: 8px;
       font-weight: bold;
       box-sizing: border-box;
@@ -72,7 +71,7 @@
       color: white;
     }
 
-    /* ホットペッパー（同色に統一） */
+    /* ホットペッパー（同色） */
     .btn-hotpepper {
       background-color: #b22222;
       color: white;
@@ -89,6 +88,7 @@
     .map-wrap {
       margin-top: 10px;
     }
+
     .map-wrap iframe {
       width: 100%;
       height: 320px;
@@ -96,6 +96,7 @@
       border-radius: 10px;
       display: block;
     }
+
     .map-note {
       font-size: 14px;
       color: #555;
@@ -118,11 +119,10 @@
       display: block;
     }
 
-    /* スマホで写真が細い場合の調整 */
+    /* スマホ調整 */
     @media (max-width: 420px) {
       .btn { width: 92%; font-size: 19px; }
       .gallery img { width: 48%; }
-      .hero img { max-height: 300px; }
       .map-wrap iframe { height: 280px; }
     }
   </style>
@@ -138,11 +138,11 @@
   </header>
 
   <div class="hero">
-    <img src="02.北店ファサード２.jpg" alt="京とんちん亭 京都駅前北店 外観">
+    <img src="02.北店ファサード２.jpg" alt="北店 外観">
   </div>
 
   <div class="container">
-    <h2>京都駅すぐ。鉄板料理を気軽に。</h2>
+    <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
 
     <!-- 食べログ -->
     <a class="btn btn-tabelog"
@@ -168,18 +168,18 @@
     </a>
   </div>
 
+  <!-- Googleマップ（店内・料理の上） -->
   <div class="container">
     <h2>アクセス（Googleマップ）</h2>
-
     <div class="map-wrap">
-      <!-- 店名検索の簡易埋め込み（APIキー不要） -->
       <iframe
+        src="https://www.google.com/maps?q=%E9%89%84%E6%9D%BF%E5%B1%85%E9%85%92%E5%B1%8B%20%E4%BA%AC%E3%81%A8%E3%82%93%E3%81%A1%E3%82%93%E4%BA%AD%20%E4%BA%AC%E9%83%BD%E9%A7%85%E5%89%8D%E5%8C%97%E5%BA%97&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=%E9%89%84%E6%9D%BF%E5%B1%85%E9%85%92%E5%B1%8B%20%E4%BA%AC%E3%81%A8%E3%82%93%E3%81%A1%E3%82%93%E4%BA%AD%20%E4%BA%AC%E9%83%BD%E9%A7%85%E5%89%8D%E5%8C%97%E5%BA%97&output=embed">
+        allowfullscreen>
       </iframe>
       <p class="map-note">
-        ※地図が別店舗を指す場合は、住所（または緯度経度）で埋め込みURLを調整します。
+        ※地図が別の場所を指す場合は「住所」または「緯度経度」で固定できます（必要ならこちらで埋め込みURLを作ります）。
       </p>
     </div>
   </div>
