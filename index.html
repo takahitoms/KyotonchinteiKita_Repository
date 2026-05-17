@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>鉄板居酒屋 京とんちん亭 京都駅前北店</title>
 
   <!-- Google tag (gtag.js) -->
@@ -13,9 +14,9 @@
     gtag('config', 'AW-17414271910');
 
     /**
-     * CV送信→送信後に遷移（event_callback）
-     * - JSが無効/gtag未読込なら通常遷移（return true）
-     * - gtagが使えるならCV送信後に遷移（return falseで一旦止める）
+     * CV送信 → 送信後に遷移（外部リンクの取りこぼし防止）
+     * - gtagが使えない場合は通常遷移
+     * - 送信後に遷移するため、CV取りこぼしが減ります
      */
     function trackAndGo(sendTo, url, newTab) {
       try {
@@ -25,7 +26,6 @@
         const go = function() {
           if (navigated) return;
           navigated = true;
-
           if (!url) return;
           if (newTab) {
             window.open(url, '_blank', 'noopener');
@@ -39,12 +39,12 @@
           'event_callback': go
         });
 
-        // 念のためのフォールバック（callbackが呼ばれない場合に遷移）
+        // 念のためのフォールバック（callbackが呼ばれない場合）
         setTimeout(go, 800);
 
-        return false; // デフォルト遷移を止めて callback 後に遷移
+        return false;
       } catch (e) {
-        return true; // 何かあれば通常遷移
+        return true;
       }
     }
   </script>
@@ -86,7 +86,7 @@
       text-align: center;
     }
 
-    /* 追加文言（①②） */
+    /* 追加文言 */
     .lead {
       margin: 10px 0 0;
       font-size: 16px;
@@ -113,6 +113,7 @@
       border-radius: 8px;
       font-weight: bold;
       box-sizing: border-box;
+      cursor: pointer;
     }
 
     /* 食べログ */
@@ -134,7 +135,7 @@
       border: 2px solid #b22222;
     }
 
-    /* 受付時間（⑥） */
+    /* 受付時間 */
     .tel-note {
       margin: 6px 0 0;
       font-size: 14px;
@@ -189,40 +190,38 @@
   </header>
 
   <div class="hero">
-    <img src="02.北店ファサード２.jpg" alt="北店 外観">
+    <img src="02.北店ファサード２.webp" alt="北店 外観" fetchpriority="high" decoding="async">
   </div>
 
   <div class="container">
     <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
 
-    <!-- ①② 追加文言 -->
-    <p class="lead">京都駅すぐ／鉄板料理でサクッと一杯</p>
+    <p class="lead">京都タワーの西すぐ／鉄板料理でサクッと一杯</p>
     <p class="sublead">まずは空席確認</p>
 
-    <!-- ③ 食べログ（CV送信→送信後に新規タブで遷移） -->
+    <!-- 食べログ -->
     <a class="btn btn-tabelog"
        href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
        target="_blank" rel="noopener"
-       onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A', 'https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890', true);">
+       onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A','https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890', true);">
       空席確認して予約する（食べログ）
     </a>
 
-    <!-- ④ ホットペッパー（CV送信→送信後に新規タブで遷移） -->
+    <!-- ホットペッパー -->
     <a class="btn btn-hotpepper"
        href="https://kyoutonchintei.owst.jp/"
        target="_blank" rel="noopener"
-       onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A', 'https://kyoutonchintei.owst.jp/', true);">
+       onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A','https://kyoutonchintei.owst.jp/', true);">
       空席確認して予約する（ホットペッパー）
     </a>
 
-    <!-- ⑤ 電話（CV送信→送信後に発信） -->
+    <!-- 電話 -->
     <a class="btn btn-tel"
        href="tel:0753439955"
-       onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A', 'tel:0753439955', false);">
+       onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A','tel:0753439955', false);">
       今すぐ電話で確認
     </a>
 
-    <!-- ⑥ 受付時間 -->
     <p class="tel-note">受付時間 11時～22時</p>
   </div>
 
@@ -243,14 +242,14 @@
   <div class="container">
     <h2>店内・料理</h2>
     <div class="gallery">
-      <img src="京やきそば.jpg" alt="京やきそば" loading="lazy" decoding="async">
-      <img src="お好み焼き.jpg" alt="お好み焼き" loading="lazy" decoding="async">
-      <img src="唐揚げ.jpg" alt="唐揚げ" loading="lazy" decoding="async">
-      <img src="厚切りベーコン.jpg" alt="厚切りベーコン" loading="lazy" decoding="async">
-      <img src="ガーリックチャーハン.jpg" alt="ガーリックチャーハン" loading="lazy" decoding="async">
-      <img src="お漬物.jpg" alt="お漬物" loading="lazy" decoding="async">
-      <img src="04.北店店内1.jpg" alt="店内写真1" loading="lazy" decoding="async">
-      <img src="07.北店店内4.jpg" alt="店内写真4" loading="lazy" decoding="async">
+      <img src="京やきそば.webp" alt="京やきそば" loading="lazy" decoding="async">
+      <img src="お好み焼き.webp" alt="お好み焼き" loading="lazy" decoding="async">
+      <img src="唐揚げ.webp" alt="唐揚げ" loading="lazy" decoding="async">
+      <img src="厚切りベーコン.webp" alt="厚切りベーコン" loading="lazy" decoding="async">
+      <img src="ガーリックチャーハン.webp" alt="ガーリックチャーハン" loading="lazy" decoding="async">
+      <img src="お漬物.webp" alt="お漬物" loading="lazy" decoding="async">
+      <img src="04.北店店内1.webp" alt="店内写真1" loading="lazy" decoding="async">
+      <img src="07.北店店内4.webp" alt="店内写真4" loading="lazy" decoding="async">
     </div>
   </div>
 
