@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>鉄板居酒屋 京とんちん亭 京都駅前北店</title>
+  <title>鉄板居酒屋 京とんちん亭 京都駅北店</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17414271910"></script>
@@ -28,6 +28,7 @@
           if (navigated) return;
           navigated = true;
           if (!url) return;
+
           if (newTab) {
             window.open(url, '_blank', 'noopener');
           } else {
@@ -59,7 +60,7 @@
 
     /* ヘッダー */
     header {
-      background-color: #b22222; /* 食べログボタンと統一 */
+      background-color: #b22222;
       color: white;
       text-align: center;
       padding: 20px;
@@ -110,26 +111,17 @@
       cursor: pointer;
     }
 
-    /* 食べログ */
-    .btn-tabelog {
+    .btn-tabelog, .btn-hotpepper {
       background-color: #b22222;
       color: white;
     }
 
-    /* ホットペッパー */
-    .btn-hotpepper {
-      background-color: #b22222;
-      color: white;
-    }
-
-    /* 電話 */
     .btn-tel {
       background-color: white;
       color: #b22222;
       border: 2px solid #b22222;
     }
 
-    /* 受付時間 */
     .tel-note {
       margin: 6px 0 0;
       font-size: 14px;
@@ -149,7 +141,7 @@
       display: block;
     }
 
-    /* ★地図エリア下の情報カード */
+    /* ★地図付近の情報カード */
     .info-card {
       margin: 14px auto 0;
       max-width: 720px;
@@ -182,17 +174,48 @@
       color: #333;
       line-height: 1.6;
     }
+
     .muted {
       color: #666;
       font-size: 13px;
       line-height: 1.6;
     }
+
     .invoice-box {
       margin-top: 8px;
       padding: 10px 12px;
       border-radius: 10px;
       background: #fff;
       border: 1px dashed #ddd;
+    }
+
+    /* ★営業時間（3パターンで簡潔） */
+    .hours-list {
+      margin: 6px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hours-list li {
+      padding: 8px 0;
+      border-top: 1px dashed #e6e6e6;
+    }
+    .hours-list li:first-child { border-top: none; }
+    .dow {
+      display: inline-block;
+      width: 78px;
+      font-weight: 800;
+      color: #333;
+    }
+    .badge {
+      display: inline-block;
+      background: #b22222;
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+      white-space: nowrap;
     }
 
     /* ギャラリー */
@@ -209,13 +232,13 @@
       display: block;
     }
 
-    /* スマホ調整 */
     @media (max-width: 420px) {
       .btn { width: 92%; font-size: 19px; }
       .gallery img { width: 48%; }
       .map-wrap iframe { height: 280px; }
       .sublead { font-size: 14px; }
       .info-label { flex-basis: 80px; }
+      .dow { width: 68px; }
     }
   </style>
 </head>
@@ -225,7 +248,7 @@
   <header>
     <h1>
       鉄板居酒屋<br>
-      京とんちん亭 京都駅前北店
+      京とんちん亭 京都駅北店
     </h1>
   </header>
 
@@ -235,8 +258,6 @@
 
   <div class="container">
     <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
-
-    <!-- ★「京都タワーの西…／～一杯」は削除 -->
     <p class="sublead">まずは空席確認</p>
 
     <!-- 食べログ -->
@@ -261,7 +282,6 @@
        onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A','tel:0753439955', false);">
       今すぐ電話で確認
     </a>
-
     <p class="tel-note">受付時間 11時～22時</p>
   </div>
 
@@ -274,11 +294,9 @@
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <!-- ★ここに「住所/アクセス/決済/インボイス」を適材適所で追加 -->
     <div class="info-card" aria-label="店舗情報">
       <h3>店舗情報</h3>
 
@@ -293,6 +311,35 @@
         <div class="info-label">アクセス</div>
         <div class="info-value">
           京都駅より徒歩2分 ／ ヨドバシカメラ京都より徒歩1分
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">ご予算</div>
+        <div class="info-value">
+          ディナー：￥3,000～￥3,999 ／ ランチ：￥1,000～￥1,999
+        </div>
+      </div>
+
+      <!-- ★営業時間（3パターンで完結：土曜も一体化） -->
+      <div class="info-row">
+        <div class="info-label">営業時間</div>
+        <div class="info-value">
+          <ul class="hours-list">
+            <li>
+              <span class="dow">月〜木・土</span>
+              11:00–14:30（L.O.14:00）／17:00–22:00（料理21:00・ドリンク21:30）
+            </li>
+            <li>
+              <span class="dow">金</span>
+              11:00–14:30（L.O.14:00）／17:00–23:00（料理22:00・ドリンク22:30）
+              <span class="badge">金曜は23時まで</span>
+            </li>
+            <li>
+              <span class="dow">日</span>
+              定休日
+            </li>
+          </ul>
         </div>
       </div>
 
