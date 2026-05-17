@@ -30,15 +30,23 @@ function trackAndGo(sendTo,url,newTab){
 
 <style>
 body{margin:0;background:#3e1f17;font-family:sans-serif;}
-header{background:#b22222;color:#fff;text-align:center;padding:20px;}
+header{background:#b22222;color:#fff;text-align:center;padding:20px;font-size:24px;}
 .container{background:#fff;margin:20px;padding:20px;border-radius:10px;text-align:center;}
-.hero img{width:100%;}
-.btn{display:block;margin:15px auto;padding:18px;font-size:20px;border-radius:8px;width:85%;}
+.hero img{width:100%;display:block;}
+
+.btn{display:block;margin:16px auto;padding:18px;font-size:20px;border-radius:8px;width:86%;max-width:440px;}
 .btn-tabelog,.btn-hotpepper{background:#b22222;color:white;}
 .btn-tel{background:#fff;color:#b22222;border:2px solid #b22222;}
-.info-card{text-align:left;background:#fafafa;padding:15px;border-radius:10px;}
-.info-row{margin-bottom:10px;}
-.gallery img{width:45%;margin:5px;border-radius:8px;}
+
+.tel-note{font-size:14px;color:#555;}
+
+.info-card{text-align:left;background:#fafafa;padding:15px;border-radius:10px;margin-top:10px;}
+.info-row{margin-bottom:12px;}
+
+.gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+.gallery img{width:45%;border-radius:8px;}
+
+.map iframe{width:100%;height:320px;border-radius:10px;}
 </style>
 </head>
 
@@ -70,20 +78,22 @@ onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A',this.href,true)
 
 <a class="btn btn-tel"
 href="tel:0753439955"
-onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A',this.href,false);">
+onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A','tel:0753439955',false);">
 今すぐ電話で確認
 </a>
 
-<p>受付時間 11時～22時</p>
+<p class="tel-note">受付時間 11時～22時</p>
 </div>
 
 <div class="container">
 <h2>アクセス</h2>
 
+<div class="map">
 <iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.760206873688!2d135.75530827620784!3d34.98767066776039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600108af40545357%3A0x5853e1d68cd3dfb7!2z6YmE5p2_5bGF6YWS5bGLIOS6rOOBqOOCk-OBoeOCk-S6rSDkuqzpg73pp4XljJflupc!5e0!3m2!1sja!2sjp!4v1778996683082!5m2!1sja!2sjp"
-width="100%" height="320" style="border:0;" loading="lazy">
+src="https://www.google.com/maps?q=京都府京都市下京区東塩小路町579-11&output=embed"
+allowfullscreen loading="lazy">
 </iframe>
+</div>
 
 <div class="info-card">
 
@@ -93,13 +103,13 @@ width="100%" height="320" style="border:0;" loading="lazy">
 </div>
 
 <div class="info-row">
-<strong>電話番号</strong><br>
-075-343-9955
+<strong>アクセス</strong><br>
+京都駅 徒歩2分 ／ ヨドバシ京都 徒歩1分
 </div>
 
 <div class="info-row">
-<strong>アクセス</strong><br>
-京都駅徒歩2分 / ヨドバシ京都徒歩1分
+<strong>電話番号</strong><br>
+075-343-9955
 </div>
 
 <div class="info-row">
@@ -111,36 +121,39 @@ width="100%" height="320" style="border:0;" loading="lazy">
 
 <div class="info-row">
 <strong>喫煙</strong><br>
-全席喫煙可（20歳未満入場不可）<br>
-お子様・禁煙希望の方は
+全席喫煙可（20歳未満入場不可）<br><br>
+お子様連れ・禁煙希望の方は<br>
 <a href="https://akr6025958183.owst.jp/">みやこみち店へ</a>
 </div>
 
 <div class="info-row">
 <strong>席数</strong><br>
-53席 / 最大53名
+総席数53席<br>
+カウンター9席・BOX42席<br>
+最大収容人数53名
 </div>
 
 <div class="info-row">
 <strong>貸切</strong><br>
-貸切可
+貸切可（詳細は店舗へご相談ください）
 </div>
 
 </div>
 </div>
 
 <div class="container">
-<h2>料理・店内</h2>
-
+<h2>店内・料理</h2>
 <div class="gallery">
-<img src="京やきそば.webp">
-<img src="お好み焼き.webp">
-<img src="唐揚げ.webp">
-<img src="厚切りベーコン.webp">
+<img src="京やきそば.webp" alt="">
+<img src="お好み焼き.webp" alt="">
+<img src="唐揚げ.webp" alt="">
+<img src="厚切りベーコン.webp" alt="">
+<img src="ガーリックチャーハン.webp" alt="">
+<img src="お漬物.webp" alt="">
+<img src="04.北店店内1.webp" alt="">
+<img src="07.北店店内4.webp" alt="">
 </div>
-
 </div>
 
 </body>
 </html>
-
