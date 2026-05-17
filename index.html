@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -51,22 +50,6 @@
       text-align: center;
     }
 
-    /* 追加テキスト（①②） */
-    .lead {
-      margin: 10px 0 0;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #333;
-      font-weight: 600;
-    }
-
-    .sublead {
-      margin: 6px 0 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-    }
-
     /* ボタン共通（大きめ：現状維持） */
     .btn {
       display: block;
@@ -98,14 +81,6 @@
       background-color: white;
       color: #b22222;
       border: 2px solid #b22222;
-    }
-
-    /* 受付時間（⑥） */
-    .tel-note {
-      margin: 6px 0 0;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.4;
     }
 
     /* Googleマップ */
@@ -148,8 +123,6 @@
       .btn { width: 92%; font-size: 19px; }
       .gallery img { width: 48%; }
       .map-wrap iframe { height: 280px; }
-      .lead { font-size: 15px; }
-      .sublead { font-size: 14px; }
     }
   </style>
 </head>
@@ -170,49 +143,45 @@
   <div class="container">
     <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
 
-    <!-- ①② 追加文言 -->
-    <p class="lead">京都駅すぐ／鉄板料理でサクッと一杯</p>
-    <p class="sublead">当日OK・まずは空席確認</p>
-
-    <!-- 食べログ（③ 文言変更） -->
+    <!-- 食べログ -->
     <a class="btn btn-tabelog"
        href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
        target="_blank" rel="noopener"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/-TdFCL39tK0cEKbn4u9A'});">
-      空席確認して予約（食べログ）
+      食べログで予約する
     </a>
 
-    <!-- ホットペッパー（④ 文言変更） -->
+    <!-- ホットペッパー -->
     <a class="btn btn-hotpepper"
        href="https://kyoutonchintei.owst.jp/"
        target="_blank" rel="noopener"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/HyPzCJ6ina0cEKbn4u9A'});">
-      空席確認して予約（ホットペッパー）
+      ホットペッパーで予約する
     </a>
 
-    <!-- 電話（⑤ 文言変更） -->
+    <!-- 電話 -->
     <a class="btn btn-tel"
        href="tel:0753439955"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/zuLGCJPat60cEKbn4u9A'});">
-      今すぐ電話で確認
+      ☎ 電話で予約する
     </a>
-
-    <!-- ⑥ 受付時間 -->
-    <p class="tel-note">受付時間 11時～22時</p>
   </div>
 
   <!-- Googleマップ（店内・料理の上） -->
   <div class="container">
     <h2>アクセス（Googleマップ）</h2>
     <div class="map-wrap">
+      <!-- ★ 店舗固定の埋め込み（pb=...）に差し替え済み -->
       <iframe
-        src="https://www.google.com/maps?q=%E9%89%84%E6%9D%BF%E5%B1%85%E9%85%92%E5%B1%8B%20%E4%BA%AC%E3%81%A8%E3%82%93%E3%81%A1%E3%82%93%E4%BA%AD%20%E4%BA%AC%E9%83%BD%E9%A7%85%E5%89%8D%E5%8C%97%E5%BA%97&output=embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.760206873688!2d135.75530827620784!3d34.98767066776039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600108af40545357%3A0x5853e1d68cd3dfb7!2z6YmE5p2_5bGF6YWS5bGLIOS6rOOBqOOCk-OBoeOCk-S6rSDkuqzpg73pp4XljJflupc!5e0!3m2!1sja!2sjp!4v1778996683082!5m2!1sja!2sjp"
+        style="border:0;"
+        allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen>
+        referrerpolicy="no-referrer-when-downgrade">
       </iframe>
+
       <p class="map-note">
-        ※地図が別の場所を指す場合は「住所」または「緯度経度」で固定できます（必要ならこちらで埋め込みURLを作ります）。
+        ※地図が北店の位置に固定されました。
       </p>
     </div>
   </div>
