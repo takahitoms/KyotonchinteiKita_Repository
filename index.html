@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>鉄板居酒屋 京とんちん亭 京都駅北店</title>
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17414271910"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,382 +13,163 @@
     gtag('js', new Date());
     gtag('config', 'AW-17414271910');
 
-    /**
-     * CV送信 → 送信後に遷移（外部リンクの取りこぼし防止）
-     * - gtagが使えない場合は通常遷移
-     * - 送信後に遷移するため、CV取りこぼしが減ります
-     */
     function trackAndGo(sendTo, url, newTab) {
       try {
         if (typeof gtag !== 'function') return true;
-
-        let navigated = false;
-        const go = function() {
-          if (navigated) return;
-          navigated = true;
-          if (!url) return;
-
-          if (newTab) {
-            window.open(url, '_blank', 'noopener');
-          } else {
-            window.location.href = url;
-          }
+        let done = false;
+        const go = function(){
+          if (done) return;
+          done = true;
+          newTab ? window.open(url, '_blank','noopener') : location.href = url;
         };
-
-        gtag('event', 'conversion', {
-          'send_to': sendTo,
-          'event_callback': go
-        });
-
-        // 念のためのフォールバック（callbackが呼ばれない場合）
-        setTimeout(go, 800);
-
+        gtag('event','conversion',{ 'send_to':sendTo,'event_callback':go });
+        setTimeout(go,800);
         return false;
-      } catch (e) {
-        return true;
-      }
+      } catch(e){ return true; }
     }
   </script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      background-color: #3e1f17;
-    }
+<style>
+body{margin:0;background:#3e1f17;font-family:sans-serif;}
+header{background:#b22222;color:#fff;text-align:center;padding:20px;font-size:24px;}
+.hero img{width:100%;display:block;}
+.container{background:#fff;margin:20px;padding:20px;border-radius:10px;text-align:center;}
+.sublead{color:#555;margin-top:6px;}
+.btn{display:block;margin:16px auto;padding:18px;font-size:20px;border-radius:8px;width:86%;max-width:440px;}
+.btn-tabelog,.btn-hotpepper{background:#b22222;color:#fff;}
+.btn-tel{background:#fff;color:#b22222;border:2px solid #b22222;}
+.tel-note{font-size:14px;color:#555;}
 
-    /* ヘッダー */
-    header {
-      background-color: #b22222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+.info-card{margin:14px auto;max-width:720px;background:#fafafa;padding:14px;border-radius:10px;text-align:left;}
+.info-row{padding:8px 0;border-top:1px solid #eee;}
+.info-label{font-weight:bold;}
+.hours-list li{margin:6px 0;}
+.badge{background:#b22222;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px;}
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1.4;
-    }
-
-    /* メイン画像 */
-    .hero img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
-
-    /* コンテンツ枠 */
-    .container {
-      background-color: white;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    /* サブ訴求 */
-    .sublead {
-      margin: 6px 0 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    /* ボタン共通 */
-    .btn {
-      display: block;
-      text-decoration: none;
-      padding: 18px;
-      margin: 16px auto;
-      width: 86%;
-      max-width: 440px;
-      font-size: 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      box-sizing: border-box;
-      cursor: pointer;
-    }
-
-    .btn-tabelog, .btn-hotpepper {
-      background-color: #b22222;
-      color: white;
-    }
-
-    .btn-tel {
-      background-color: white;
-      color: #b22222;
-      border: 2px solid #b22222;
-    }
-
-    .tel-note {
-      margin: 6px 0 0;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.4;
-    }
-
-    /* Googleマップ */
-    .map-wrap {
-      margin-top: 10px;
-    }
-    .map-wrap iframe {
-      width: 100%;
-      height: 320px;
-      border: 0;
-      border-radius: 10px;
-      display: block;
-    }
-
-    /* ★地図付近の情報カード */
-    .info-card {
-      margin: 14px auto 0;
-      max-width: 720px;
-      text-align: left;
-      background: #fafafa;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 14px;
-    }
-    .info-card h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
-      font-weight: 800;
-      color: #333;
-    }
-    .info-row {
-      display: flex;
-      gap: 10px;
-      padding: 8px 0;
-      border-top: 1px solid #eee;
-    }
-    .info-row:first-of-type { border-top: none; }
-    .info-label {
-      flex: 0 0 92px;
-      font-weight: 800;
-      color: #333;
-    }
-    .info-value {
-      flex: 1;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .muted {
-      color: #666;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .invoice-box {
-      margin-top: 8px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: #fff;
-      border: 1px dashed #ddd;
-    }
-
-    /* ★営業時間（3パターンで簡潔） */
-    .hours-list {
-      margin: 6px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .hours-list li {
-      padding: 8px 0;
-      border-top: 1px dashed #e6e6e6;
-    }
-    .hours-list li:first-child { border-top: none; }
-    .dow {
-      display: inline-block;
-      width: 78px;
-      font-weight: 800;
-      color: #333;
-    }
-    .badge {
-      display: inline-block;
-      background: #b22222;
-      color: #fff;
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      margin-left: 6px;
-      vertical-align: middle;
-      white-space: nowrap;
-    }
-
-    /* ギャラリー */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .gallery img {
-      width: 45%;
-      border-radius: 8px;
-      display: block;
-    }
-
-    @media (max-width: 420px) {
-      .btn { width: 92%; font-size: 19px; }
-      .gallery img { width: 48%; }
-      .map-wrap iframe { height: 280px; }
-      .sublead { font-size: 14px; }
-      .info-label { flex-basis: 80px; }
-      .dow { width: 68px; }
-    }
-  </style>
+.gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.gallery img{width:45%;border-radius:8px;}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>
-      鉄板居酒屋<br>
-      京とんちん亭 京都駅北店
-    </h1>
-  </header>
+<header>
+鉄板居酒屋<br>京とんちん亭 京都駅北店
+</header>
 
-  <div class="hero">
-    <img src="02.北店ファサード２.webp" alt="北店 外観" fetchpriority="high" decoding="async">
-  </div>
+<div class="hero">
+  <img src="02.北店ファサード２.webp">
+</div>
 
-  <div class="container">
-    <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
-    <p class="sublead">まずは空席確認</p>
+<div class="container">
+<h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
+<p class="sublead">まずは空席確認</p>
 
-    <!-- 食べログ -->
-    <a class="btn btn-tabelog"
-       href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
-       target="_blank" rel="noopener"
-       onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A','https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890', true);">
-      空席確認して予約する（食べログ）
-    </a>
+<a class="btn btn-tabelog"
+href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
+onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A',this.href,true);">
+空席確認して予約する（食べログ）
+</a>
 
-    <!-- ホットペッパー -->
-    <a class="btn btn-hotpepper"
-       href="https://kyoutonchintei.owst.jp/"
-       target="_blank" rel="noopener"
-       onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A','https://kyoutonchintei.owst.jp/', true);">
-      空席確認して予約する（ホットペッパー）
-    </a>
+<a class="btn btn-hotpepper"
+href="https://kyoutonchintei.owst.jp/"
+onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A',this.href,true);">
+空席確認して予約する（ホットペッパー）
+</a>
 
-    <!-- 電話 -->
-    <a class="btn btn-tel"
-       href="tel:0753439955"
-       onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A','tel:0753439955', false);">
-      今すぐ電話で確認
-    </a>
-    <p class="tel-note">受付時間 11時～22時</p>
-  </div>
+<a class="btn btn-tel"
+href="tel:0753439955"
+onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A','tel:0753439955',false);">
+今すぐ電話で確認
+</a>
 
-  <!-- Googleマップ（店内・料理の上）※北店固定 pb=... -->
-  <div class="container">
-    <h2>アクセス（Googleマップ）</h2>
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.760206873688!2d135.75530827620784!3d34.98767066776039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600108af40545357%3A0x5853e1d68cd3dfb7!2z6YmE5p2_5bGF6YWS5bGLIOS6rOOBqOOCk-OBoeOCk-S6rSDkuqzpg73pp4XljJflupc!5e0!3m2!1sja!2sjp!4v1778996683082!5m2!1sja!2sjp"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+<p class="tel-note">受付時間 11時～22時</p>
+</div>
 
-    <div class="info-card" aria-label="店舗情報">
-      <h3>店舗情報</h3>
+<!-- 地図 -->
+<div class="container">
+<h2>アクセス</h2>
 
-      <div class="info-row">
-        <div class="info-label">住所</div>
-        <div class="info-value">
-          京都府京都市下京区木津屋橋通新町東入る東塩小路町579-11
-        </div>
-      </div>
+<iframe src="https://www.google.com/maps/embed?pb=..." 
+style="width:100%;height:320px;border:0;border-radius:10px;"></iframe>
 
-      <div class="info-row">
-        <div class="info-label">アクセス</div>
-        <div class="info-value">
-          京都駅より徒歩2分 ／ ヨドバシカメラ京都より徒歩1分
-        </div>
-      </div>
+<div class="info-card">
 
-      <div class="info-row">
-        <div class="info-label">ご予算</div>
-        <div class="info-value">
-          ディナー：￥3,000～￥3,999 ／ ランチ：￥1,000～￥1,999
-        </div>
-      </div>
+<div class="info-row">
+<span class="info-label">住所</span><br>
+京都府京都市下京区木津屋橋通新町東入る東塩小路町579-11
+</div>
 
-      <!-- ★営業時間（3パターンで完結：土曜も一体化） -->
-      <div class="info-row">
-        <div class="info-label">営業時間</div>
-        <div class="info-value">
-          <ul class="hours-list">
-            <li>
-              <span class="dow">月〜木・土</span>
-              11:00–14:30（L.O.14:00）／17:00–22:00（料理21:00・ドリンク21:30）
-            </li>
-            <li>
-              <span class="dow">金</span>
-              11:00–14:30（L.O.14:00）／17:00–23:00（料理22:00・ドリンク22:30）
-              <span class="badge">金曜は23時まで</span>
-            </li>
-            <li>
-              <span class="dow">日</span>
-              定休日
-            </li>
-          </ul>
-        </div>
-      </div>
+<div class="info-row">
+<span class="info-label">電話番号</span><br>
+075-343-9955
+</div>
 
-      <div class="info-row">
-        <div class="info-label">カード</div>
-        <div class="info-value">
-          利用可：VISA､マスター､アメックス､JCB
-        </div>
-      </div>
+<div class="info-row">
+<span class="info-label">アクセス</span><br>
+京都駅より徒歩2分／ヨドバシカメラ京都より徒歩1分
+</div>
 
-      <div class="info-row">
-        <div class="info-label">電子マネー</div>
-        <div class="info-value">
-          利用可：楽天Edy､Suica､PASMO､nanaco､ICOCA､iD
-        </div>
-      </div>
+<div class="info-row">
+<span class="info-label">営業時間</span>
+<ul class="hours-list">
+<li>月〜木・土：11:00–14:30／17:00–22:00</li>
+<li>金：11:00–14:30／17:00–23:00 <span class="badge">金曜のみ</span></li>
+<li>日：定休日</li>
+</ul>
+</div>
 
-      <div class="info-row">
-        <div class="info-label">QR決済</div>
-        <div class="info-value">
-          利用可：PayPay
-        </div>
-      </div>
+<div class="info-row">
+<span class="info-label">喫煙</span><br>
+全席喫煙可（20歳未満入場不可）<br>
+<small>※受動喫煙防止法に基づく</small><br>
 
-      <div class="invoice-box">
-        <div class="info-value">
-          <strong>領収書（適格簡易請求書）</strong><br>
-          適格請求書（インボイス）の要件を満たした領収書を発行します。<br>
-          登録番号：<strong>T3130001031895</strong>
-          <p class="muted" style="margin:8px 0 0;">
-            ※適格請求書発行事業者の最新の登録状態については、インボイス制度適格請求書発行事業者公表サイトを確認するか店舗にご確認ください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<p>
+お子様連れ・禁煙希望の方は<br>
+<a href="https://akr6025958183.owst.jp/" target="_blank">
+みやこみち店へ
+</a>でお待ちしております。
+</p>
+</div>
 
-  <div class="container">
-    <h2>店内・料理</h2>
-    <div class="gallery">
-      <img src="京やきそば.webp" alt="京やきそば" loading="lazy" decoding="async">
-      <img src="お好み焼き.webp" alt="お好み焼き" loading="lazy" decoding="async">
-      <img src="唐揚げ.webp" alt="唐揚げ" loading="lazy" decoding="async">
-      <img src="厚切りベーコン.webp" alt="厚切りベーコン" loading="lazy" decoding="async">
-      <img src="ガーリックチャーハン.webp" alt="ガーリックチャーハン" loading="lazy" decoding="async">
-      <img src="お漬物.webp" alt="お漬物" loading="lazy" decoding="async">
-      <img src="04.北店店内1.webp" alt="店内写真1" loading="lazy" decoding="async">
-      <img src="07.北店店内4.webp" alt="店内写真4" loading="lazy" decoding="async">
-    </div>
-  </div>
+<div class="info-row">
+<span class="info-label">席数</span><br>
+総席数53席（カウンター9席・BOX42席）<br>
+最大収容53人
+</div>
+
+<div class="info-row">
+<span class="info-label">貸切</span><br>
+貸切可（ご相談ください）
+</div>
+
+<div class="info-row">
+<span class="info-label">決済</span><br>
+カード：VISA / Master / AMEX / JCB<br>
+電子マネー・PayPay対応
+</div>
+
+<div class="info-row">
+<span class="info-label">インボイス</span><br>
+登録番号：T3130001031895
+</div>
+
+</div>
+</div>
+
+<div class="container">
+<h2>店内・料理</h2>
+<div class="gallery">
+京やきそば.webp
+お好み焼き.webp
+唐揚げ.webp
+厚切りベーコン.webp
+ガーリックチャーハン.webp
+お漬物.webp
+04.北店店内1.webp
+07.北店店内4.webp
+</div>
+</div>
 
 </body>
 </html>
