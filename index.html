@@ -51,6 +51,22 @@
       text-align: center;
     }
 
+    /* 追加テキスト（①②） */
+    .lead {
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .sublead {
+      margin: 6px 0 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #555;
+    }
+
     /* ボタン共通（大きめ：現状維持） */
     .btn {
       display: block;
@@ -82,6 +98,14 @@
       background-color: white;
       color: #b22222;
       border: 2px solid #b22222;
+    }
+
+    /* 受付時間（⑥） */
+    .tel-note {
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
     }
 
     /* Googleマップ */
@@ -124,6 +148,8 @@
       .btn { width: 92%; font-size: 19px; }
       .gallery img { width: 48%; }
       .map-wrap iframe { height: 280px; }
+      .lead { font-size: 15px; }
+      .sublead { font-size: 14px; }
     }
   </style>
 </head>
@@ -144,28 +170,35 @@
   <div class="container">
     <h2>京都駅すぐ。鉄板料理をお気軽に。</h2>
 
-    <!-- 食べログ -->
+    <!-- ①② 追加文言 -->
+    <p class="lead">京都駅すぐ／鉄板料理でサクッと一杯</p>
+    <p class="sublead">当日OK・まずは空席確認</p>
+
+    <!-- 食べログ（③ 文言変更） -->
     <a class="btn btn-tabelog"
        href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
        target="_blank" rel="noopener"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/-TdFCL39tK0cEKbn4u9A'});">
-      食べログで予約する
+      空席確認して予約（食べログ）
     </a>
 
-    <!-- ホットペッパー -->
+    <!-- ホットペッパー（④ 文言変更） -->
     <a class="btn btn-hotpepper"
        href="https://kyoutonchintei.owst.jp/"
        target="_blank" rel="noopener"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/HyPzCJ6ina0cEKbn4u9A'});">
-      ホットペッパーで予約する
+      空席確認して予約する（ホットペッパー）
     </a>
 
-    <!-- 電話 -->
+    <!-- 電話（⑤ 文言変更） -->
     <a class="btn btn-tel"
        href="tel:0753439955"
        onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/zuLGCJPat60cEKbn4u9A'});">
-      ☎ 電話で予約する
+      今すぐ電話で確認
     </a>
+
+    <!-- ⑥ 受付時間 -->
+    <p class="tel-note">受付時間 11時～22時</p>
   </div>
 
   <!-- Googleマップ（店内・料理の上） -->
