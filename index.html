@@ -11,6 +11,42 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-17414271910');
+
+    /**
+     * CV送信→送信後に遷移（event_callback）
+     * - JSが無効/gtag未読込なら通常遷移（return true）
+     * - gtagが使えるならCV送信後に遷移（return falseで一旦止める）
+     */
+    function trackAndGo(sendTo, url, newTab) {
+      try {
+        if (typeof gtag !== 'function') return true;
+
+        let navigated = false;
+        const go = function() {
+          if (navigated) return;
+          navigated = true;
+
+          if (!url) return;
+          if (newTab) {
+            window.open(url, '_blank', 'noopener');
+          } else {
+            window.location.href = url;
+          }
+        };
+
+        gtag('event', 'conversion', {
+          'send_to': sendTo,
+          'event_callback': go
+        });
+
+        // 念のためのフォールバック（callbackが呼ばれない場合に遷移）
+        setTimeout(go, 800);
+
+        return false; // デフォルト遷移を止めて callback 後に遷移
+      } catch (e) {
+        return true; // 何かあれば通常遷移
+      }
+    }
   </script>
 
   <style>
@@ -163,26 +199,26 @@
     <p class="lead">京都駅すぐ／鉄板料理でサクッと一杯</p>
     <p class="sublead">まずは空席確認</p>
 
-    <!-- ③ 食べログ（文言変更） -->
+    <!-- ③ 食べログ（CV送信→送信後に新規タブで遷移） -->
     <a class="btn btn-tabelog"
        href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
        target="_blank" rel="noopener"
-       onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/-TdFCL39tK0cEKbn4u9A'});">
+       onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A', 'https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890', true);">
       空席確認して予約する（食べログ）
     </a>
 
-    <!-- ④ ホットペッパー（文言変更） -->
+    <!-- ④ ホットペッパー（CV送信→送信後に新規タブで遷移） -->
     <a class="btn btn-hotpepper"
        href="https://kyoutonchintei.owst.jp/"
        target="_blank" rel="noopener"
-       onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/HyPzCJ6ina0cEKbn4u9A'});">
+       onclick="return trackAndGo('AW-17414271910/HyPzCJ6ina0cEKbn4u9A', 'https://kyoutonchintei.owst.jp/', true);">
       空席確認して予約する（ホットペッパー）
     </a>
 
-    <!-- ⑤ 電話（文言変更） -->
+    <!-- ⑤ 電話（CV送信→送信後に発信） -->
     <a class="btn btn-tel"
        href="tel:0753439955"
-       onclick="gtag('event', 'conversion', {'send_to': 'AW-17414271910/zuLGCJPat60cEKbn4u9A'});">
+       onclick="return trackAndGo('AW-17414271910/zuLGCJPat60cEKbn4u9A', 'tel:0753439955', false);">
       今すぐ電話で確認
     </a>
 
@@ -207,14 +243,14 @@
   <div class="container">
     <h2>店内・料理</h2>
     <div class="gallery">
-      <img src="京やきそば.jpg" alt="京やきそば">
-      <img src="お好み焼き.jpg" alt="お好み焼き">
-      <img src="唐揚げ.jpg" alt="唐揚げ">
-      <img src="厚切りベーコン.jpg" alt="厚切りベーコン">
-      <img src="ガーリックチャーハン.jpg" alt="ガーリックチャーハン">
-      <img src="お漬物.jpg" alt="お漬物">
-      <img src="04.北店店内1.jpg" alt="店内写真1">
-      <img src="07.北店店内4.jpg" alt="店内写真4">
+      <img src="京やきそば.jpg" alt="京やきそば" loading="lazy" decoding="async">
+      <img src="お好み焼き.jpg" alt="お好み焼き" loading="lazy" decoding="async">
+      <img src="唐揚げ.jpg" alt="唐揚げ" loading="lazy" decoding="async">
+      <img src="厚切りベーコン.jpg" alt="厚切りベーコン" loading="lazy" decoding="async">
+      <img src="ガーリックチャーハン.jpg" alt="ガーリックチャーハン" loading="lazy" decoding="async">
+      <img src="お漬物.jpg" alt="お漬物" loading="lazy" decoding="async">
+      <img src="04.北店店内1.jpg" alt="店内写真1" loading="lazy" decoding="async">
+      <img src="07.北店店内4.jpg" alt="店内写真4" loading="lazy" decoding="async">
     </div>
   </div>
 
