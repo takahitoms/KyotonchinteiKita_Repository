@@ -56,6 +56,37 @@ gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1
   border-radius:6px;
   margin-left:6px;
 }
+
+/* ★追加：期間限定キャンペーン枠 */
+.campaign-box {
+  border: 3px dashed #b22222;
+  background: #fff9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.campaign-box .title {
+  color: #b22222;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.campaign-box .price {
+  font-size: 26px;
+  color: #d32f2f;
+  font-weight: bold;
+  margin: 8px 0;
+}
+.campaign-box .note {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  background: #ffebee;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 </style>
 </head>
 
@@ -73,6 +104,12 @@ gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1
 <div class="container">
 <h2>京都駅北側・京都タワー西すぐ！<br>全席喫煙可能な人気鉄板居酒屋</h2>
 
+<div class="campaign-box">
+  <div class="title">✨期間限定キャンペーン✨</div>
+  <div style="font-size: 14px; color: #555;">2026年8月31日まで／月曜日〜木曜日の平日限定</div>
+  <div class="price">単品飲み放題 90分<br><span style="font-size: 32px;">1,980円</span>（税込）</div>
+  <div class="note">⚠️ ホットペッパーまたは食べログからの<br>ネットご予約が必須となります！</div>
+</div>
 <a class="btn btn-tabelog"
 href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=26024890"
 onclick="return trackAndGo('AW-17414271910/-TdFCL39tK0cEKbn4u9A',this.href,true);">
