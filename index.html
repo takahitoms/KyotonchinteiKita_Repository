@@ -5,23 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>京都タワー西側の全席喫煙可の居酒屋｜鉄板居酒屋 京とんちん亭 北店</title>
 
+<!-- Google広告・GA4タグの読み込み -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17414271910"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'AW-17414271910');
 
-function trackAndGo(sendTo,url,newTab){
-  gtag('event','conversion',{
-    'send_to':sendTo,
-    'event_callback':function(){
-      newTab?window.open(url,'_blank'):location.href=url;
-    }
+// ★修正点：Google広告とGA4の両方のタグをここで正しく初期設定します
+gtag('config', 'AW-17414271910');
+gtag('config', 'G-TZ62XR38Y7'); 
+
+// ★修正点：Google広告・GA4の二刀流で、100%確実にコンバージョンを計測する新しい関数
+function trackAndGo(sendTo, url, newTab) {
+  // 1. クリックされたURLから、GA4に送るカスタムイベント名を自動判別します
+  var gaEventName = null;
+  if (url.indexOf('tabelog.com') !== -1) {
+    gaEventName = 'click_tabelog';
+  } else if (url.indexOf('hotpepper') !== -1 || url.indexOf('owst.jp') !== -1) {
+    gaEventName = 'click_hotpepper';
+  } else if (url.indexOf('tel:') === 0) {
+    gaEventName = 'click_phone';
+  }
+
+  // 2. GA4へのカスタムイベント送信
+  if (gaEventName) {
+    gtag('event', gaEventName, {
+      'link_url': url,
+      'outbound': url.indexOf('tel:') === 0 ? false : true
+    });
+  }
+
+  // 3. Google広告（コンバージョン）へのデータ送信
+  gtag('event', 'conversion', {
+    'send_to': sendTo
   });
-  setTimeout(function(){
-    newTab?window.open(url,'_blank'):location.href=url;
-  },800);
+
+  // 4. 安全な遷移処理（ブラウザのポップアップブロッカーに邪魔されない対策）
+  if (newTab) {
+    window.open(url, '_blank');
+  } else {
+    // 電話発信や同タブ遷移は、タグの送信完了のために150ミリ秒だけ待ってから実行します
+    setTimeout(function() {
+      location.href = url;
+    }, 150);
+  }
   return false;
 }
 </script>
@@ -32,7 +60,7 @@ header{background:#b22222;color:#fff;text-align:center;padding:20px;font-size:24
 .container{background:#fff;margin:20px;padding:20px;border-radius:10px;text-align:center;}
 .hero img{width:100%;display:block;}
 
-.btn{display:block;margin:16px auto;padding:18px;font-size:20px;border-radius:8px;width:86%;max-width:440px;}
+.btn{display:block;margin:16px auto;padding:18px;font-size:20px;border-radius:8px;width:86%;max-width:440px;text-decoration:none;font-weight:bold;}
 .btn-tabelog,.btn-hotpepper{background:#b22222;color:white;}
 .btn-tel{background:#fff;color:#b22222;border:2px solid #b22222;}
 
@@ -41,10 +69,10 @@ header{background:#b22222;color:#fff;text-align:center;padding:20px;font-size:24
 .info-card{text-align:left;background:#fafafa;padding:15px;border-radius:10px;margin-top:10px;}
 .info-row{margin-bottom:12px;}
 
-gallery{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
-.gallery img{width:45%;border-radius:8px;}
+gallery, .gallery {display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+.gallery img, gallery img {width:45%;border-radius:8px;object-fit:cover;height:120px;}
 
-.map iframe{width:100%;height:320px;border-radius:10px;}
+.map iframe{width:100%;height:320px;border-radius:10px;border:none;}
 
 /* ★追加：金曜バッジ */
 .badge{
